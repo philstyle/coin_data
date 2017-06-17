@@ -11,7 +11,7 @@ pushd $DIR >> /dev/null 2>&1
 NOW=`date +%s`
 LASTCOMMIT=`git log -n1 --oneline --pretty --date=unix | grep "^Date" | awk '{print $2}'` >> /dev/null 2>&1
 SECDIFF=`echo "${NOW} - ${LASTCOMMIT}" | bc -l`
-if [ ${SECDIFF} -gt "3600" ]; then
+if [ ${SECDIFF} -gt "360" ]; then
  ./pushValues.sh
 fi
 popd >> /dev/null 2>&1
